@@ -56,13 +56,14 @@ public class MainActivity extends AppCompatActivity {
         textViewWynik = findViewById(R.id.textViewWynik);
         buttonRownanie = findViewById(R.id.buttonRownanie);
 
+        buttonAC = findViewById(R.id.buttonAC);
+        buttonDEL = findViewById(R.id.buttonDEL);
+        buttonANS = findViewById(R.id.buttonANS);
+
         znajdzPrzycisk(buttonPlus, R.id.buttonPlus);
         znajdzPrzycisk(buttonMinus, R.id.buttonMinus);
         znajdzPrzycisk(buttonMnozenie, R.id.buttonMnozenie);
         znajdzPrzycisk(buttonDzielenie, R.id.buttonDzielenie);
-        znajdzPrzycisk(buttonAC, R.id.buttonAC);
-        znajdzPrzycisk(buttonDEL, R.id.buttonDEL);
-        znajdzPrzycisk(buttonANS, R.id.buttonANS);
         znajdzPrzycisk(button0, R.id.button0);
         znajdzPrzycisk(button1, R.id.button1);
         znajdzPrzycisk(button2, R.id.button2);
@@ -77,6 +78,13 @@ public class MainActivity extends AppCompatActivity {
         znajdzPrzycisk(buttonOtwNawias, R.id.buttonOtwNawias);
         znajdzPrzycisk(buttonZamkNawias, R.id.buttonZamkNawias);
 
+        buttonRownanie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                oblicz();
+            }
+        });
+
 
     }
     private void znajdzPrzycisk(Button nazwaZmiennej, int id){
@@ -85,9 +93,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Button button = (Button) view;
-                String buttonTekst = (String)(button.getText());
-                textViewWynik.setText(buttonTekst);
+                String buttonTekst = (String) button.getText();
+                String polaczZnaki = textViewWynik.getText() + buttonTekst;
+
+                textViewWynik.setText(polaczZnaki);
             }
         });
+    }
+
+    private void oblicz(){
+
     }
 }
